@@ -1,0 +1,83 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: light;
+  }
+
+  html,
+  body,
+  #root {
+    height: 100%;
+  }
+
+  body {
+    @apply bg-bg-base text-content-primary font-sans antialiased;
+    margin: 0;
+  }
+
+  /* Light, subtle scrollbars */
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: #d7dad3 transparent;
+  }
+  *::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+  *::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  *::-webkit-scrollbar-thumb {
+    background: #d7dad3;
+    border-radius: 8px;
+    border: 2px solid transparent;
+    background-clip: content-box;
+  }
+  *::-webkit-scrollbar-thumb:hover {
+    background: #c3c7bf;
+    background-clip: content-box;
+  }
+}
+
+@layer components {
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl px-4 py-2 text-sm font-medium
+      transition-all duration-150 select-none disabled:opacity-40 disabled:pointer-events-none;
+  }
+  /* Lime primary with dark text */
+  .btn-primary {
+    @apply btn bg-brand text-content-primary hover:bg-brand-hover shadow-sm;
+  }
+  /* Dark solid action */
+  .btn-dark {
+    @apply btn bg-sidebar text-white hover:bg-sidebar-hover;
+  }
+  .btn-ghost {
+    @apply btn text-content-secondary hover:text-content-primary hover:bg-bg-hover;
+  }
+  .btn-secondary {
+    @apply btn border border-border bg-bg-surface text-content-primary hover:bg-bg-elevated hover:border-border-strong;
+  }
+
+  .segmented {
+    @apply inline-flex items-center gap-1 rounded-xl border border-border bg-bg-surface p-1;
+  }
+  .segmented-item {
+    @apply inline-flex items-center gap-1.5 rounded-lg px-3 py-1.5 text-sm font-medium
+      text-content-secondary hover:text-content-primary hover:bg-bg-hover transition-colors;
+  }
+  .segmented-item[data-active='true'] {
+    @apply bg-brand text-content-primary hover:text-content-primary hover:bg-brand;
+  }
+
+  .card {
+    @apply rounded-xl border border-border bg-bg-surface shadow-sm;
+  }
+
+  .panel-label {
+    @apply text-[11px] font-semibold uppercase tracking-wider text-content-muted;
+  }
+}
